@@ -15,7 +15,7 @@ public class ToolMoney {
     }
 
     public boolean isToolMoneyEnabled() {
-        return config.getBoolean("use-tool-money", false);
+        return config.getBoolean("use-tool-money", true);
     }
 
     public int getMoneyForTool(Material material) {
@@ -24,6 +24,6 @@ public class ToolMoney {
     }
 
     public void setToolMoneyEnabled(boolean enabled) {
-        config.set("use-tool-money", false);
+        config.set("use-tool-money", true);
     }
 }

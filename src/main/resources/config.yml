@@ -53,7 +53,7 @@ world-blacklist:
   - world_the_end
 
 rewardProbability: 0.02
-use-tool-money: false
+use-tool-money: true
 tools:
   NETHERITE_PICKAXE: 250
   NETHERITE_SHOVEL: 250

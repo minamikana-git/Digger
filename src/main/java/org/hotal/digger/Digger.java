@@ -93,7 +93,7 @@ public class Digger extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        getLogger().info("[ほたまち]整地プラグインを起動しています。データのロード中です。");
+        getLogger().info("整地プラグインを起動しています。データのロード中です。");
         saveDefaultConfig();
         Properties prop = new Properties();
 
@@ -152,7 +152,7 @@ public class Digger extends JavaPlugin implements Listener {
         startScoreboardUpdater();
             if (this.getConfig().contains("scoreboardUpdateInterval")) {
                 scoreboardUpdateInterval = this.getConfig().getLong("scoreboardUpdateInterval");
-                useToolMoney = getConfig().getBoolean("use-tool-money", false);
+                useToolMoney = getConfig().getBoolean("use-tool-money", true);
                new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -444,7 +444,7 @@ public class Digger extends JavaPlugin implements Listener {
         Integer toolReward = isToolRewardEnabled ? rewardMap.getOrDefault(toolType, 50) : 50;
         if (Math.random() < rewardProbability) {
             economy.depositPlayer(player, toolReward);
-            player.sendMessage("§a " + toolReward + "NANDEを手に入れました。");
+            player.sendMessage("§a " + toolReward + "円を手に入れました。");
             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0F, 1.0F);
         }
     }
@@ -465,7 +465,7 @@ public class Digger extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-        getLogger().info("[ほたまち]整地プラグインを終了しています。データ保存をしていますのでサーバーを強制終了しないでください。");
+        getLogger().info("整地プラグインを終了しています。データ保存をしていますのでサーバーを強制終了しないでください。");
         try {
             if (mySQLDatabase != null && mySQLDatabase.isConnected()) {
                 saveData();
